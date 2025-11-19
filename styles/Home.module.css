@@ -1,0 +1,200 @@
+
+  
+  
+  /* ---------- HEADER ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(160deg, #f6e3e7 0%, #e7f1ec 100%);
+  }
+
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  
+  .navigation a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  
+    /* colors */
+    background-color: #ffffff;           /* solid white by default */
+    color: #49243e;                      /* your plum text */
+  
+    /* subtle border + transition */
+    border: 1px solid rgba(73, 36, 62, 0.25);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease;
+  }
+  
+  .navigation a:hover {
+    /* “going to transparency a little bit” */
+    background-color: rgba(255, 255, 255, 0.4); /* more see-through */
+    border-color: rgba(73, 36, 62, 0.4);
+  }
+  
+  
+  .bgImage {
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    filter: blur(2px);
+    z-index: 0;
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.6), transparent 70%);
+    backdrop-filter: blur(6px);
+    z-index: 1;
+  }
+  
+  /* ---------- Petal Animation ---------- */
+  .petals {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .petal {
+    position: absolute;
+    width: 20px;
+    height: 14px;
+    background: rgba(255, 182, 193, 0.7);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: -10%;
+    left: calc(100% * var(--i, 0));
+    animation: fall 14s linear infinite;
+  }
+  .petal:nth-child(odd) { background: rgba(230, 196, 212, 0.6); }
+  @keyframes fall {
+    0% { transform: translateY(-10%) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+  }
+  
+  /* ---------- Hero Content ---------- */
+  .heroContent {
+    position: relative;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 35px rgba(111, 136, 120, 0.25);
+    animation: fadeIn 1.5s ease both;
+  }
+  
+  .heroContent h1 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    background: linear-gradient(90deg, #c97a8d, #758f81);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  
+  .heroContent p {
+    color: #4d3d44;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  /* ---------- Buttons ---------- */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .primary,
+  .outline {
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .primary {
+    background: #758f81;
+    color: #fff;
+  }
+  .primary:hover {
+    background: #61796e;
+    transform: translateY(-2px);
+  }
+  .outline {
+    border: 2px solid #758f81;
+    color: #758f81;
+  }
+  .outline:hover {
+    background: rgba(117, 143, 129, 0.1);
+  }
+  
+  /* ---------- Main Content ---------- */
+  .main {
+    padding: 4rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 1.5s ease both;
+  }
+  :global(.section) {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  :global(.section h2) {
+    font-size: 1.9rem;
+    color: #758f81;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(117,143,129,0.3);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+  :global(.card) {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(117,143,129,0.25);
+    border-radius: 16px;
+    padding: 1.8rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 25px rgba(117,143,129,0.15);
+    transition: all 0.3s ease;
+  }
+  :global(.card:hover) {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(117,143,129,0.25);
+  }
+  :global(.card h3) { color: #4d3d44; }
+  :global(.card p) { color: #5b4c52; line-height: 1.6; }
+  
+  .footer {
+    color: #758f81;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    opacity: 0.8;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  

@@ -1,0 +1,247 @@
+/* Define the Color Hunt palette as CSS variables */
+:root {
+  --primary-color: #A5B68D;      /* Muted olive green for headings and text accents */
+  --secondary-color: #C1CFA1;    /* Light greenish-gray for borders and hover states */
+  --accent-color: #E7CCCC;       /* Soft pastel pink for buttons and highlights */
+  --bg-color: #EDE8DC;           /* Cream as the overall page background */
+  --container-bg: #FFFFFF;       /* Use white for containers for a clean look */
+  --text-color: #333333;         /* Dark tone for body text */
+  --cute-color: white;
+  --dark-green: #324a34;
+  --hover: #506c53;
+  --hover-again: #6d866f;
+  --header-overlay: rgba(231, 218, 204, 0.985); /* A semi-transparent overlay derived from the accent color */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --primary-darker: #707A52;  /* one shade darker than the primary color */
+}
+
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-darker);
+   /* optional, if you want to remove underlines */
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header Styles */
+.header_container {
+  position: relative;
+  overflow: hidden;
+}
+
+.header-image {
+  /* Your responsive header image styling; Next.js Image component takes care of responsiveness */
+}
+
+.header_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--cute-color);
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* Navigation */
+.navigation {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+/* Updated navigation anchor link styling:
+   Added padding for the whole anchor and a pink, semi-transparent background */
+.navigation a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 10px 16px; /* Extra padding for a button-like appearance */
+  background-color: var( --cute-color); /* Pink hue with transparency */
+  border-radius: 4px;
+}
+
+.navigation a:hover {
+  color: var(--secondary-color);
+  background-color: var(--bg-color); /* Slightly darker on hover */
+}
+
+/* Section (Card) Styling */
+.section {
+  text-align: center;
+  background-color: var(--container-bg);
+  padding: 40px 20px;
+  margin: 40px auto;
+  border-radius: 8px;
+  max-width: 1200px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+/* Education / Experience Container Styling */
+.education_adjustments,
+.experience_entry {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--container-bg);
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid var(--secondary-color);
+}
+
+.education-image,
+.text_ed {
+  flex: 1 1 45%;
+}
+
+.text_ed p {
+  text-align: left;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-link {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--hover);
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.25s ease;
+  border: 1px solid rgba(73, 36, 62, 0.2);
+}
+
+.btn-link:hover {
+  background: var(--hover-again);
+}
+
+/* Projects: large modern card */
+.project-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--secondary-color);
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 10px 30px rgba(117, 143, 129, 0.18);
+}
+
+.project-image img {
+  border-radius: 14px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+
+/* Project Article Styling */
+.project {
+  background-color: var(--container-bg);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 800px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.project p {
+  margin-bottom: 15px;
+}
+
+.project button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.project button:hover {
+  background-color: var(--primary-color);
+  color: var(--container-bg);
+}
+
+/* Skills Container Styling */
+.skills_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Button Global Styles */
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: var(--container-bg);
+  margin-top: 40px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .education_adjustments,
+  .experience_entry {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header_text {
+    font-size: 1.5rem;
+    padding: 15px 20px;
+  }
+}
